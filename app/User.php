@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+      protected $dateFormat = 'd/m/y';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,8 +30,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function tickets(){
+
+
+    public function tickets() {
       // korisnik ima dosta tiketa (one to many relacija)
       return $this->hasMany('App\Ticket');
     }
+
 }

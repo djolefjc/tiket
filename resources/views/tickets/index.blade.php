@@ -12,6 +12,7 @@
               <th>ID</th>
               <th>Napomena</th>
               <th>Opis</th>
+              <th>Ime</th>
               <th>Status</th>
           </tr>
       </thead>
@@ -25,6 +26,7 @@
               <td>{{$ticket->napomena}}</td>
               <td>{{$ticket->opis}}</td>
               <td>{{$ticket->status}}</td>
+              <td><a href="/tickets/{{$ticket->user_id}}//user">{{$ticket->user->name}}</a></td>
 
           </tr>
   @endforeach

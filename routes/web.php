@@ -18,9 +18,13 @@ Route::get('/','PagesController@index');
 //Tickets
 Route::resource('tickets','TicketController');
 
+Route::get('tickets/{ticket}/user','TicketController@showUser');
+
 Route::get('/tickets/{ticket}/delete','TicketController@delete');
 
 Route::post('/tickets/{ticket}/edit','TicketController@change');
+
+
 
 
 //Users

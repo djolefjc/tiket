@@ -4,10 +4,9 @@
 
 @section('content')
 <div class="container">
-
-
+    <h1> Tiketi Korisnika {{$ticket->user->name}}  </h1>
           @if(count($tickets) > 0)
-          <h1>Moji Tiketi</h1>
+
 
           <table id="table_id" class="display">
             <thead>

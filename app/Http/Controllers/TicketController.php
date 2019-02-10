@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Ticket;
+use App\User;
 
 class TicketController extends Controller
 {
@@ -84,6 +85,19 @@ class TicketController extends Controller
         return view('tickets/show')->with('ticket',$ticket);
     }
 
+    public function showUser($user_id)
+    {
+
+      $tickets = Ticket::where('user_id',$user_id)->get();
+      $ticket = Ticket::find($user_id);
+
+
+     return view('tickets/user')->with('tickets',$tickets)->with('ticket',$ticket);
+
+    }
+
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -97,9 +111,6 @@ class TicketController extends Controller
         if(auth()->user()->id !== $ticket->user_id){
           return redirect('tickets');
         }
-
-      //------
-
 
       return view('tickets/edit')->with('ticket',$ticket);
     }

@@ -18,10 +18,11 @@ class CreateTicketsTable extends Migration
             $table->string('sifra');
             $table->string('napomena');
             $table->text('opis');
-            $table->boolean('status');
+            $table->boolean('status')->default(1);
             $table->integer('user_id');
-            $table->timestamps();
-            $table->softDeletes();
+            $table->date('created_at');
+            $table->date('deleted_at')->nullable();
+            $table->date('updated_at')->nullable();
         });
     }
 
