@@ -25,8 +25,8 @@
               <td>{{$ticket->sifra}}</td>
               <td>{{$ticket->napomena}}</td>
               <td>{{$ticket->opis}}</td>
-              <td>{{$ticket->status}}</td>
               <td><a href="/tickets/{{$ticket->user_id}}//user">{{$ticket->user->name}}</a></td>
+              <td> <?php if($ticket->status == 1){echo"Otvoren";}else{echo"Zatvoren";} ?></td>
 
           </tr>
   @endforeach

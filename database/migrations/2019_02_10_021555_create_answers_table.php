@@ -16,6 +16,7 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
             $table->date('created_at');
+            $table->date('updated_at')->nullable();
             $table->integer('ticket_id');
             $table->text('odgovor');
         });

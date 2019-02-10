@@ -32,4 +32,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+//Answers
+Route::get('/answers/{ticket}/create','AnswersController@create')->name('answers.create');
+Route::post('/answers/{ticket}/store','AnswersController@store')->name('answers.store');
+
 //Admins

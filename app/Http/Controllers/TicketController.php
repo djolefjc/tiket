@@ -82,7 +82,9 @@ class TicketController extends Controller
     public function show($id)
     {
         $ticket = Ticket::find($id);
-        return view('tickets/show')->with('ticket',$ticket);
+        $answers = Ticket::find($id)->answers;
+        return view('tickets/show')->with('ticket',$ticket)->with('answers',$answers);
+
     }
 
     public function showUser($user_id)
@@ -90,6 +92,8 @@ class TicketController extends Controller
 
       $tickets = Ticket::where('user_id',$user_id)->get();
       $ticket = Ticket::find($user_id);
+
+
 
 
      return view('tickets/user')->with('tickets',$tickets)->with('ticket',$ticket);
