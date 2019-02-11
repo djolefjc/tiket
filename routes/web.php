@@ -18,12 +18,13 @@ Route::get('/','PagesController@index');
 //Tickets
 Route::resource('tickets','TicketController');
 
-Route::get('tickets/{ticket}/user','TicketController@showUser');
+Route::post('/tickets/{ticket}/status','TicketController@status')->name('ticket.status');
 
-Route::get('/tickets/{ticket}/delete','TicketController@delete');
+Route::get('/tickets/{ticket}/user','TicketController@showUser')->name('ticket.user');
 
-Route::post('/tickets/{ticket}/edit','TicketController@change');
+Route::get('/tickets/{ticket}/delete','TicketController@delete')->name('ticket.delete');
 
+Route::post('/tickets/{ticket}/edit','TicketController@change')->name('ticket.change');
 
 
 

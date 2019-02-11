@@ -20,8 +20,6 @@ class AnswersController extends Controller
         'odgovor' => 'required'
       ]);
 
-    
-
       $answer = new Answer;
       $answer->odgovor = request('odgovor');
       $answer->ticket_id = $ticket;

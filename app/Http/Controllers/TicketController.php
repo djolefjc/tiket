@@ -70,6 +70,7 @@ class TicketController extends Controller
       $ticket->status = 1;
       $ticket->user_id = auth()->user()->id;
       $ticket->save();
+
       return redirect()->route('home');
     }
 
@@ -83,6 +84,7 @@ class TicketController extends Controller
     {
         $ticket = Ticket::find($id);
         $answers = Ticket::find($id)->answers;
+
         return view('tickets/show')->with('ticket',$ticket)->with('answers',$answers);
 
     }
@@ -93,10 +95,7 @@ class TicketController extends Controller
       $tickets = Ticket::where('user_id',$user_id)->get();
       $ticket = Ticket::find($user_id);
 
-
-
-
-     return view('tickets/user')->with('tickets',$tickets)->with('ticket',$ticket);
+      return view('tickets/user')->with('tickets',$tickets)->with('ticket',$ticket);
 
     }
 
@@ -142,6 +141,15 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function status(Request $request, Ticket $ticket) {
+
+      $ticket->status = request('choice');
+      $ticket->save();
+      return redirect()->route('tickets.index');
+
+     }
+
     public function delete($id)
     {
 
@@ -152,9 +160,10 @@ class TicketController extends Controller
           return redirect()->route('tickets');
         }
 
-
-
         $ticket->delete();
         return redirect()->route('home');
+
     }
+    ###############
+
 }

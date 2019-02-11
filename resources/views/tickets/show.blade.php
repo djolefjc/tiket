@@ -28,14 +28,47 @@
        <p>
          {{$answer->odgovor}}
        </p>
-       <br />
+
      @endforeach
    @else
      <h1> Nema jos uvek odgovora!</h1>
    @endif
-     <p class="blog-post-meta">
-       <?php if($ticket->status == 1){echo"Otvoren";}else{echo"Zatvoren";} ?>
-       </p>
-       <a class="btn btn-primary" href="{{route('answers.create',$ticket->id)}}">Odgovori</a>
+
+   <div class="row text-center" >
+   <div class="col-sm">
+
+
+
+       <form  method="post"  action="/tickets/{{$ticket->id}}/status" >
+         @csrf
+           <div class="col">
+          <button class="btn btn-primary" name="submit" type="submit">Potvrdi</button>
+             </div>
+               <br />
+             <div class="col">
+             <select class="form-control contorl-label" name="choice" >
+               <option value="1">
+                 Otvoren
+               </option>
+               <option value="0">
+                 Zatvoren
+               </option>
+             </select>
+           </div>
+
+         </form>
+
+
+
+     </div>
+     <div class="col-sm">
+         <h3>  @if($ticket->status == 1){{"Otvoren"}} @else {{"Zatvoren"}} @endif</h3>
+     </div>
+       <div class="col-sm">
+      <a class="btn btn-primary" href="{{route('answers.create',$ticket->id)}}">Odgovori</a>
+       </div>
+       </div>
+
       </div><!-- /.blog-post -->
+
 @endsection
