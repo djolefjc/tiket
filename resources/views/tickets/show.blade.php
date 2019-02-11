@@ -66,7 +66,9 @@
          <h3>  @if($ticket->status == 1){{"Otvoren"}} @else {{"Zatvoren"}} @endif</h3>
      </div>
        <div class="col-sm">
-      <a class="btn btn-primary" href="{{route('answers.create',$ticket->id)}}">Odgovori</a>
+         @if($ticket->status == 1)
+           <a class="btn btn-primary" href="{{route('answers.create',$ticket->id)}}">Odgovori</a>
+         @endif
        </div>
        </div>
 
