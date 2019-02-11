@@ -13,6 +13,7 @@
               <th>Napomena</th>
               <th>Opis</th>
               <th>Ime</th>
+              <th>Datum</th>
               <th>Status</th>
           </tr>
       </thead>
@@ -25,8 +26,9 @@
               <td>{{$ticket->sifra}}</td>
               <td>{{$ticket->napomena}}</td>
               <td>{{$ticket->opis}}</td>
-              <td><a href="/tickets/{{$ticket->user_id}}//user">{{$ticket->user->name}}</a></td>
-              <td> <?php if($ticket->status == 1){echo"Otvoren";}else{echo"Zatvoren";} ?></td>
+              <td><a href="/tickets/{{$ticket->user_id}}/user">{{$ticket->user->name}}</a></td>
+              <td>{{date('d/m/Y',strtotime($ticket->created_at))}}</td>
+              <td> @if($ticket->status == 1){{"Otvoren"}} @else {{"Zatvoren"}} @endif</td>
 
           </tr>
   @endforeach

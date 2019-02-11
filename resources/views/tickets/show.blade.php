@@ -10,7 +10,7 @@
      @endif
      @endif
          <h2 class="blog-post-title">{{$ticket->napomena}}</h2>
-         <p class="blog-post-meta">{{$ticket->updated_at}} Tiket otvorio: <a href="#">{{$ticket->user->name}}</a></p>
+         <p class="blog-post-meta">{{date('d/m/Y',strtotime($ticket->created_at))}} Tiket otvorio: <a href="#">{{$ticket->user->name}}</a></p>
         <p>
           {{$ticket->opis}}
         </p>
@@ -23,7 +23,7 @@
      @if(count($answers) > 0)
      @foreach($answers as $answer)
        <p class="blog-post-meta">
-         {{$answer->created_at}}
+         {{date('d/m/Y',strtotime($answer->created_at))}}
        </p>
        <p>
          {{$answer->odgovor}}
@@ -47,10 +47,11 @@
                <br />
              <div class="col">
              <select class="form-control contorl-label" name="choice" >
-               <option value="1">
+
+               <option value="1" {{$ticket->status == 1 ? "selected" : ""}}>
                  Otvoren
                </option>
-               <option value="0">
+               <option value="0" {{$ticket->status == 0 ? "selected" : ""}}>
                  Zatvoren
                </option>
              </select>
