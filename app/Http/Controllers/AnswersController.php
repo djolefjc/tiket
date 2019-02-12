@@ -9,6 +9,16 @@ use App\Ticket;
 
 class AnswersController extends Controller
 {
+
+  public function __construct()
+  {
+
+      $this->middleware('auth:admin',['only' => 'create']);
+
+
+  }
+
+
     public function create($ticket) {
 
       return view('answers/create')->with('ticket',$ticket);

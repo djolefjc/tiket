@@ -29,9 +29,9 @@
                               <a class="dropdown-item" href="{{ route('register') }}">Register</a>
                           </div>
                       </li>
-                    @if (Route::has('register'))
 
-                    @endif
+
+
                     <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
@@ -39,11 +39,12 @@
                                 <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Login</a>
+                                <a class="dropdown-item" href="{{route('admin.auth.login')}}">Login</a>
 
                             </div>
                         </li>
-                @else
+                      @endauth
+                            @auth('web')
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -62,7 +63,28 @@
                             </form>
                         </div>
                     </li>
-                @endguest
+                  @endauth
+                  @auth('admin')
+          <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                Admin  {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{route('admin.dashboard')}}">Statistika</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </div>
+          </li>
+        @endauth
+
             </ul>
         </div>
 

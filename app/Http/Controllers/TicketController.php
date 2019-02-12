@@ -20,7 +20,8 @@ class TicketController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth',['except'=>['index','show']]);
+        $this->middleware('auth',['except'=>['index','show','showUser','status']]);
+        $this->middleware('auth:admin',['only' => 'status']);
 
 
     }

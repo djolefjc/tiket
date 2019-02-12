@@ -34,6 +34,8 @@
      <h1> Nema jos uvek odgovora!</h1>
    @endif
 
+
+    @auth('admin')
    <div class="row text-center" >
    <div class="col-sm">
 
@@ -71,7 +73,7 @@
          @endif
        </div>
        </div>
-
+     @endauth
       </div><!-- /.blog-post -->
 
 @endsection

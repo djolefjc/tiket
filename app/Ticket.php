@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Ticket extends Model
 {
 
-    protected $dateFormat = 'd/m/y';
+    
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
