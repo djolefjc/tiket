@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+
 use Illuminate\Http\Request;
 use App\Admin;
 use App\Ticket;
@@ -7,7 +9,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin',['only' => 'index','edit','statistics']);
+        $this->middleware('auth:admin',['only' => 'index','edit','show']);
     }
     /**
      * Display a listing of the resource.
@@ -47,7 +49,7 @@ class AdminController extends Controller
         $admins->email = $request->email;
         $admins->password=bcrypt($request->password);
         $admins->save();
-        return redirect()->route('admin.auth.login');
+        return redirect()->route('admin.dashboard');
     }
     /**
      * Display the specified resource.
@@ -58,7 +60,12 @@ class AdminController extends Controller
 
     public function show()
     {
-         return view('admin.statistics');
+
+      $tickets = Ticket::all()->sortBy('created_at');
+
+
+
+       return view('admin.statistics')->with('tickets',$tickets);
     }
     /**
      * Show the form for editing the specified resource.

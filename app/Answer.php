@@ -16,3 +16,4 @@ class Answer extends Model
   public function admin(){
     return $this->belongsTo('App\Admin');
 }
+}

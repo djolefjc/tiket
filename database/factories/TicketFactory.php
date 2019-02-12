@@ -18,6 +18,7 @@ $factory->define(App\Ticket::class, function (Faker $faker) {
         'sifra' => uniqid(),
         'napomena' => $faker->sentence(),
         'opis' => $faker->paragraph(),
-        'user_id' => rand(1,30)
+        'user_id' => rand(1,30),
+        'created_at' =>$faker->dateTime()
     ];
 });

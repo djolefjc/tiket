@@ -16,6 +16,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Answer::class, function (Faker $faker) {
     return [
         'odgovor' => $faker->paragraph(),
-        'ticket_id' => rand(1,150)
+        'ticket_id' => rand(1,150),
+        'created_at' =>$faker->dateTime()
     ];
 });
