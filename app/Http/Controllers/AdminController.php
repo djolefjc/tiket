@@ -6,7 +6,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin',['only' => 'index','edit');
+        $this->middleware('auth:admin',['only' => 'index','edit']);
     }
     /**
      * Display a listing of the resource.
