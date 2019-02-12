@@ -71,7 +71,8 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{route('admin.dashboard')}}">Statistika</a>
+                <a class="dropdown-item" href="{{route('admin.statistics')}}">Statistika</a>
+                <a class="dropdown-item" href="{{route('admin.dashboard')}}">Otvoreni tiketi</a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                      onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">

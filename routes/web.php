@@ -42,9 +42,11 @@ Route::post('/answers/{ticket}/store','AnswersController@store')->name('answers.
 Route::prefix('admin')->group(function () {
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
   Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
+  Route::get('statistics','AdminController@show')->name('admin.statistics');
   Route::get('register', 'AdminController@create')->name('admin.register');
   Route::post('register', 'AdminController@store')->name('admin.register.store');
   Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
   Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
   Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
+
 });
