@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin',['only' => 'index','edit','show']);
+        $this->middleware('auth:admin',['except' => 'store','create']);
     }
     /**
      * Display a listing of the resource.
@@ -62,9 +62,6 @@ class AdminController extends Controller
     {
 
       $tickets = Ticket::all()->sortBy('created_at');
-
-
-
        return view('admin.statistics')->with('tickets',$tickets);
     }
     /**
