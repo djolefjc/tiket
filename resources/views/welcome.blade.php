@@ -64,6 +64,6 @@
                 <div class="links">
                     <a href="{{route('login')}}">Korisnik</a>
                     <a href="{{route('tickets.index')}}">Tiketi</a>
-                    <a href="#">Admin</a>
+                    <a href="{{route('admin.auth.login')}}">Admin</a>
                   </div>
 @endsection
