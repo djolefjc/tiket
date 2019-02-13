@@ -11,7 +11,7 @@
           var data = google.visualization.arrayToDataTable([
             ['Godina', 'Tiketi'],
             <?php foreach($tickets as $ticket){ ?>
-            ['{{date('Y',strtotime($ticket->created_at))}}',  {{$ticket->id}}],
+            ['{{date('Y',strtotime($ticket->created_at))}}',  {{$i++}}],
             <?php } ?>
 
           ]);
