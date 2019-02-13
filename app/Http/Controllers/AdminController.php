@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin',['except' => 'store','create']);
+        $this->middleware('auth:admin',['only' => 'index','show']);
     }
     /**
      * Display a listing of the resource.

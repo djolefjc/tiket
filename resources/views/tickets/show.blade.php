@@ -23,7 +23,7 @@
      @if(count($answers) > 0)
      @foreach($answers as $answer)
        <p class="blog-post-meta">
-         {{date('d/m/Y',strtotime($answer->created_at))}}
+         {{date('d/m/Y',strtotime($answer->created_at))}} | {{$answer->admin->name}}
        </p>
        <p>
          {{$answer->odgovor}}

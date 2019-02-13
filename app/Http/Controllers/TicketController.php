@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Ticket;
 use App\User;
+use App\Admin;
 
 class TicketController extends Controller
 {

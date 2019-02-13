@@ -18,6 +18,7 @@ class CreateAnswersTable extends Migration
             $table->date('created_at');
             $table->date('updated_at')->nullable();
             $table->integer('ticket_id');
+            $table->integer('admin_id');
             $table->text('odgovor');
         });
     }

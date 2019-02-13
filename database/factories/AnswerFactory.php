@@ -17,6 +17,7 @@ $factory->define(App\Answer::class, function (Faker $faker) {
     return [
         'odgovor' => $faker->paragraph(),
         'ticket_id' => rand(1,150),
-        'created_at' =>$faker->dateTime()
+        'created_at' =>$faker->dateTimeBetween($startDate = '-30 years', $endDate = 'now', $timezone = null),
+        'admin_id' => rand(1,10)
     ];
 });

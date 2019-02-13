@@ -33,7 +33,9 @@ class AnswersController extends Controller
       $answer = new Answer;
       $answer->odgovor = request('odgovor');
       $answer->ticket_id = $ticket;
+      $answer->admin_id = auth('admin')->user()->id;
       $answer->save();
+
 
       return redirect()->route('tickets.index');
     }

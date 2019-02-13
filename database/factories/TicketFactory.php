@@ -19,6 +19,6 @@ $factory->define(App\Ticket::class, function (Faker $faker) {
         'napomena' => $faker->sentence(),
         'opis' => $faker->paragraph(),
         'user_id' => rand(1,30),
-        'created_at' =>$faker->dateTime()
+        'created_at' =>$faker->dateTimeBetween($startDate = '-30 years', $endDate = 'now', $timezone = null)
     ];
 });
